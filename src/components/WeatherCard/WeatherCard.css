@@ -1,0 +1,14 @@
+.weather-card {
+    background: #333;           /* Darker background color */
+    color: #fff;                /* Light text for contrast */
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.weather-card:hover {
+    transform: scale(1.05);
+}
