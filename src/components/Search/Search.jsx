@@ -1,15 +1,19 @@
 import React from "react";
 import { fetchWeather } from "../../services/WeatherService";
+import { GetAverages } from "../../services/DataExtrapolation";
 import "./Search.css";
 
 let initialSearch = false;
 
-const Search = ({ city, setCity, setForecast, setError, error }) => {
+const Search = ({ city, setCity, setForecast, setError, error, setSearchedCity }) => {
     const handleSearch = async () => {
         try {
             setError(null);
             const data = await fetchWeather(city);
-            setForecast(data.list.filter((_, index) => index % 8 === 0));
+            const newData = GetAverages(data.list);
+            setForecast(newData);
+            // Update searchedCity to the current input value when search is triggered
+            setSearchedCity(city);
         } catch (err) {
             setError(err.message);
         }

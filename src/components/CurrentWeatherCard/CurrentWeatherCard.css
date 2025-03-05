@@ -1,21 +1,19 @@
-.weather-card {
+.current-weather-card {
     background: rgba(0, 0, 0, 0.5);          /* Darker background color */
     color: #fff;                /* Light text for contrast */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+    margin: 20px auto;
     padding: 10px;
     border-radius: 12px;
-    text-align: center;
-    width: 200px;
-    transition: transform 0.3s ease-in-out;
+    width: 660px;
 }
 
-.weather-card:hover {
-    transform: scale(1.05);
-}
-
-
-.weather-card h2,
-.weather-card h3,
-.weather-card p {
+.current-weather-card h2,
+.current-weather-card h3,
+.current-weather-card p {
   margin: 5px 0; /* Adjust this value as needed */
   padding: 0;
 }

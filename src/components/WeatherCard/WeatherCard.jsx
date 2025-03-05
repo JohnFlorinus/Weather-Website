@@ -2,44 +2,16 @@ import React from "react";
 import "./WeatherCard.css";
 
 const WeatherCard = ({ weather }) => {
-   //förfina vädervariabler
-  const { weather: weatherDetails, dt, wind } = weather;
-  const { temp, humidity, pressure } = weather.main;
-  const { description } = weatherDetails[0];
-
-  // mappa beskrivning till väderikon
-  const getWeatherIcon = (desc) => {
-    const lowerDesc = desc.toLowerCase();
-    if (lowerDesc.includes("clear")) {
-      return "☀️";
-    } else if (lowerDesc.includes("few clouds")) {
-      return "⛅️";
-    } else if (lowerDesc.includes("scattered clouds")) {
-      return "🌤️";
-    } else if (lowerDesc.includes("broken clouds") || lowerDesc.includes("overcast")) {
-      return "☁️"; 
-    } else if (lowerDesc.includes("rain")) {
-      return "🌧️"; 
-    } else if (lowerDesc.includes("thunderstorm")) {
-      return "⛈️";
-    } else if (lowerDesc.includes("snow")) {
-      return "❄️";
-    } else if (lowerDesc.includes("mist") || lowerDesc.includes("fog")) {
-      return "🌫️"; 
-    } else {
-      return "🌈";
-    }
-  };
-
-  const icon = getWeatherIcon(description);
+  const weatherIcon = `https://openweathermap.org/img/wn/${weather.Icon}@2x.png`;
 
   return (
     <div className="weather-card">
-      <h1>{new Date(dt * 1000).toLocaleDateString("en-US", { weekday: "long" })} {icon}</h1>
-      <h3>{new Date(dt * 1000).toLocaleDateString()}</h3>
-      <p>Average Temperature: {temp}°C</p>
-      <p>Humidity: {humidity}%</p>
-      <p>Wind: {wind.speed} m/s</p>
+      <h2>{new Date(weather.Date).toLocaleDateString("en-US", { weekday: "long" })}</h2>
+      <p>{weather.Date}</p>
+      <img src={weatherIcon}/>
+      <h3>Max {weather.MaxTemp}°C</h3>
+      <h3>Min {weather.MinTemp}°C</h3>
+      <h3>{weather.WindSpeed} m/s wind</h3>
     </div>
   );
 };

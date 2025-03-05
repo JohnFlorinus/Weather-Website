@@ -1,13 +1,19 @@
 #root {
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
 
+html {
+  background-image: url('assets/bg.jpg');
+  background-size: no-repeat, cover;
+}
+
 h1 {
   font-size: 32px;
   margin-bottom: 20px;
+  color: black;
 }
 
 .forecast-container {
@@ -15,6 +21,5 @@ h1 {
   flex-wrap: wrap;
   justify-content: center;
   gap: 20px;
-  max-width: 900px;
   margin-top: 20px;
 }
